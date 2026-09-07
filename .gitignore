@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+
+# Runtime data and downloaded assets (tokenizers, codecs)
+data/*
+!data/.gitkeep
+
+.DS_Store

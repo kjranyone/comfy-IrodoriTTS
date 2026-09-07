@@ -1,0 +1,15 @@
+# Only what this node needs beyond standard ComfyUI dependencies (torch, torchaudio,
+# safetensors, huggingface-hub, requests are provided by ComfyUI itself).
+
+dacvae @ git+https://github.com/facebookresearch/dacvae
+transformers>=5.12.1,<6
+sentencepiece>=0.1.99
+soundfile>=0.12.0
+imageio-ffmpeg>=0.5.1
+peft>=0.18.0
+tqdm>=4.67.3
+
+# Optional: SilentCipher audio watermarking (off by default)
+# silentcipher @ git+https://github.com/SesameAILabs/silentcipher.git@d46d7d0893a583d8968ab3a6626e2289faec9152
+# Optional: torchao quantized checkpoints (Irodori-TTS-v4.1-Small-Quantized)
+# torchao>=0.16.0,<0.17.0
