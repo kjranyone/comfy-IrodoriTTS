@@ -216,6 +216,7 @@
       "widgets_values": [
         "ここを読み上げるテキストに書き換えてください。seed・text・secondsは3つのSamplerで完全に同一に保つこと。",
         42,
+        "fixed",
         0.0,
         40,
         1,
@@ -301,6 +302,7 @@
       "widgets_values": [
         "ここを読み上げるテキストに書き換えてください。seed・text・secondsは3つのSamplerで完全に同一に保つこと。",
         42,
+        "fixed",
         0.0,
         40,
         1,
@@ -386,6 +388,7 @@
       "widgets_values": [
         "ここを読み上げるテキストに書き換えてください。seed・text・secondsは3つのSamplerで完全に同一に保つこと。",
         42,
+        "fixed",
         0.0,
         40,
         1,
