@@ -1,0 +1,222 @@
+{
+  "last_node_id": 4,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "kjranyone.IrodoriTTS.ModelLoader",
+      "pos": [
+        50,
+        350
+      ],
+      "size": [
+        330,
+        340
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "irodori_model_config",
+          "type": "IRODORI_MODEL_CONFIG",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.ModelLoader"
+      },
+      "widgets_values": [
+        "Irodori-TTS-v4.1-Anime/model.safetensors",
+        "cuda",
+        "bf16",
+        "cpu",
+        "fp32",
+        false,
+        false,
+        false,
+        false,
+        "offload_after_use"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "kjranyone.IrodoriTTS.VoiceDesignConfig",
+      "pos": [
+        430,
+        100
+      ],
+      "size": [
+        340,
+        160
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "irodori_voice_design_config",
+          "type": "IRODORI_VOICE_DESIGN_CONFIG",
+          "links": [
+            7
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.VoiceDesignConfig"
+      },
+      "widgets_values": [
+        "落ち着いた女性の声で、近い距離感でやわらかく自然に読み上げてください。",
+        0
+      ]
+    },
+    {
+      "id": 3,
+      "type": "kjranyone.IrodoriTTS.Sampler",
+      "pos": [
+        830,
+        250
+      ],
+      "size": [
+        360,
+        420
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_config",
+          "type": "IRODORI_MODEL_CONFIG",
+          "link": 8
+        },
+        {
+          "name": "lora_stack",
+          "type": "IRODORI_LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "ref_config",
+          "type": "IRODORI_REF_CONFIG",
+          "link": null
+        },
+        {
+          "name": "voice_design_config",
+          "type": "IRODORI_VOICE_DESIGN_CONFIG",
+          "link": 7
+        },
+        {
+          "name": "cfg_config",
+          "type": "IRODORI_CFG_CONFIG",
+          "link": null
+        },
+        {
+          "name": "duration_config",
+          "type": "IRODORI_DURATION_CONFIG",
+          "link": null
+        },
+        {
+          "name": "rescale_config",
+          "type": "IRODORI_RESCALE_CONFIG",
+          "link": null
+        },
+        {
+          "name": "schedule_config",
+          "type": "IRODORI_SCHEDULE_CONFIG",
+          "link": null
+        },
+        {
+          "name": "trim_tail_config",
+          "type": "IRODORI_TRIM_TAIL_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.Sampler"
+      },
+      "widgets_values": [
+        "キャプションだけで声質を指定するテストです。",
+        42,
+        0.0,
+        40,
+        1,
+        "sequential",
+        true,
+        0,
+        true
+      ]
+    },
+    {
+      "id": 4,
+      "type": "SaveAudio",
+      "pos": [
+        1240,
+        320
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 9
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "irodori/caption"
+      ]
+    }
+  ],
+  "links": [
+    [
+      7,
+      2,
+      0,
+      3,
+      "voice_design_config",
+      "IRODORI_VOICE_DESIGN_CONFIG"
+    ],
+    [
+      8,
+      1,
+      0,
+      3,
+      "model_config",
+      "IRODORI_MODEL_CONFIG"
+    ],
+    [
+      9,
+      3,
+      0,
+      4,
+      "audio",
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

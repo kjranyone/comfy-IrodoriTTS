@@ -1,0 +1,270 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 13,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "kjranyone.IrodoriTTS.ModelLoader",
+      "pos": [
+        50,
+        450
+      ],
+      "size": [
+        330,
+        340
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "irodori_model_config",
+          "type": "IRODORI_MODEL_CONFIG",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.ModelLoader"
+      },
+      "widgets_values": [
+        "Irodori-TTS-v4.1-Anime/model.safetensors",
+        "cuda",
+        "bf16",
+        "cpu",
+        "fp32",
+        false,
+        false,
+        false,
+        false,
+        "offload_after_use"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "kjranyone.IrodoriTTS.ReferenceAudio",
+      "pos": [
+        430,
+        100
+      ],
+      "size": [
+        340,
+        260
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "prev",
+          "type": "IRODORI_REF_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "irodori_ref_config",
+          "type": "IRODORI_REF_CONFIG",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.ReferenceAudio"
+      },
+      "widgets_values": [
+        "",
+        "None",
+        -16.0,
+        0.0
+      ]
+    },
+    {
+      "id": 3,
+      "type": "kjranyone.IrodoriTTS.VoiceDesignConfig",
+      "pos": [
+        430,
+        400
+      ],
+      "size": [
+        340,
+        160
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "irodori_voice_design_config",
+          "type": "IRODORI_VOICE_DESIGN_CONFIG",
+          "links": [
+            11
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.VoiceDesignConfig"
+      },
+      "widgets_values": [
+        "深く傷つき、今にも泣き出しそうな様子。声が震えており、悲痛なトーンで弱々しく話す。",
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "type": "kjranyone.IrodoriTTS.Sampler",
+      "pos": [
+        830,
+        280
+      ],
+      "size": [
+        360,
+        420
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_config",
+          "type": "IRODORI_MODEL_CONFIG",
+          "link": 12
+        },
+        {
+          "name": "lora_stack",
+          "type": "IRODORI_LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "ref_config",
+          "type": "IRODORI_REF_CONFIG",
+          "link": 10
+        },
+        {
+          "name": "voice_design_config",
+          "type": "IRODORI_VOICE_DESIGN_CONFIG",
+          "link": 11
+        },
+        {
+          "name": "cfg_config",
+          "type": "IRODORI_CFG_CONFIG",
+          "link": null
+        },
+        {
+          "name": "duration_config",
+          "type": "IRODORI_DURATION_CONFIG",
+          "link": null
+        },
+        {
+          "name": "rescale_config",
+          "type": "IRODORI_RESCALE_CONFIG",
+          "link": null
+        },
+        {
+          "name": "schedule_config",
+          "type": "IRODORI_SCHEDULE_CONFIG",
+          "link": null
+        },
+        {
+          "name": "trim_tail_config",
+          "type": "IRODORI_TRIM_TAIL_CONFIG",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            13
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "kjranyone.IrodoriTTS.Sampler"
+      },
+      "widgets_values": [
+        "どうしてもっと早く教えてくれなかったの？私、ずっと待ってたのに。",
+        42,
+        0.0,
+        40,
+        1,
+        "sequential",
+        true,
+        0,
+        true
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveAudio",
+      "pos": [
+        1240,
+        340
+      ],
+      "size": [
+        320,
+        120
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveAudio"
+      },
+      "widgets_values": [
+        "irodori/caption_plus_ref"
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      2,
+      0,
+      4,
+      "ref_config",
+      "IRODORI_REF_CONFIG"
+    ],
+    [
+      11,
+      3,
+      0,
+      4,
+      "voice_design_config",
+      "IRODORI_VOICE_DESIGN_CONFIG"
+    ],
+    [
+      12,
+      1,
+      0,
+      4,
+      "model_config",
+      "IRODORI_MODEL_CONFIG"
+    ],
+    [
+      13,
+      4,
+      0,
+      5,
+      "audio",
+      "AUDIO"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

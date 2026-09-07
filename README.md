@@ -155,6 +155,20 @@ v4.1ではテキスト中に絵文字注釈を埋め込むことで、抑揚や�
 
 各入力の詳細は[docs/parameters.md](docs/parameters.md)を参照してください。
 
+## ワークフローテンプレート
+
+[examples/](examples/)に主要ユースケースのテンプレートがあります。ComfyUIのキャンバスへドラッグ&ドロップ、またはFile > Openで開けます。
+
+| ファイル | 内容 |
+|---|---|
+| `01_basic.json` | 最小構成(絵文字入りテキストの読み上げ) |
+| `02_reference_audio.json` | 参照音声による話者クローン(2クリップ連結) |
+| `03_caption_voicedesign.json` | キャプションのみで声質指定 |
+| `04_caption_plus_reference.json` | 参照音声+キャプションの同時使用(v4.1) |
+| `05_speaker_embedding.json` | Speaker Inversion話者埋め込み |
+| `06_lora_stack.json` | LoRAアダプタのスタック |
+| `07_caption_ab_audit.json` | captionのA/B/C比較(同一seed・textで名前/架空名/属性の3条件を同時生成。監査用) |
+
 ## 生成設定の目安
 
 - `num_steps = 40`から始め、`seconds = 0`(自動推定)を試します。
